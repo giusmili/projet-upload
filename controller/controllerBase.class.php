@@ -1,6 +1,6 @@
 <?php
 
-# Vérifier si le formulaire a été soumis
+# Vérifier si le formulaire a été soumis : méthode de vérification empty()
 class CotrollerBase{
     static function user(){
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -40,7 +40,7 @@ class CotrollerBase{
             if ($_FILES["photo"]["error"] == UPLOAD_ERR_OK) {
                 $photo_name = htmlspecialchars(basename($_FILES["photo"]["name"]));
                 
-                # Vérifier l'extension
+                # Vérifier l'extension et autoriser une extention
                 $allowed_extensions = array("jpg", "jpeg", "png");
                 $photo_extension = strtolower(pathinfo($photo_name, PATHINFO_EXTENSION));
         
